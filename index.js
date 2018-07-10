@@ -33,7 +33,7 @@ app.get('/status', (req, res) => {
 
 app.get('/:data', (req, res) => {
     let data = req.params.data;
-    makeRequest(`${ tx_baseUrl }"${data}"`)
+    makeRequest(`${ qry_baseUrl }"${data}"`)
         .then(result => {
             res.status(200).send(result);
         })
