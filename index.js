@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.post('/:tx', (req, res) => {
     let tx = req.params.tx;
 
-    makeRequest(`${ baseUrl }tx=${ tx }`)
+    makeRequest(`${ baseUrl }tx="${ tx }"`)
     .then(result => {
         res.status(200).send(result);
     })
