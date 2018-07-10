@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 
 app.post('/:tx', (req, res) => {
     let tx = req.params.tx;
+
     makeRequest(`${ baseUrl }tx=${ tx }`)
     .then(result => {
         res.status(200).send(result);
@@ -26,6 +27,7 @@ app.listen(port, () => {
 
 
 function makeRequest(_url) {
+    console.log(_url);
     return new Promise((resolve, reject) => {
         let headers = {
             'Content-Type': 'application/json'
