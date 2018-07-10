@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 const port = process.env.PORT || 3000;
-const baseUrl = "localhost:26657/broadcast_tx_commit?";
+const baseUrl = "http://localhost:26657/broadcast_tx_commit?";
 
 const app = express();
 
