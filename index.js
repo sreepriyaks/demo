@@ -21,9 +21,8 @@ app.post('/:tx', (req, res) => {
         });
 });
 
-app.get('/:data', (req, res) => {
-    let data = req.params.data;
-    makeRequest(`${ tx_baseUrl }"${data}"`)
+app.get('/status', (req, res) => {
+    makeRequest(blkchnStatusUrl)
         .then(result => {
             res.status(200).send(result);
         })
@@ -32,8 +31,9 @@ app.get('/:data', (req, res) => {
         });
 });
 
-app.get('/status', (req, res) => {
-    makeRequest(blkchnStatusUrl)
+app.get('/:data', (req, res) => {
+    let data = req.params.data;
+    makeRequest(`${ tx_baseUrl }"${data}"`)
         .then(result => {
             res.status(200).send(result);
         })
