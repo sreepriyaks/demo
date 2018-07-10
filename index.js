@@ -2,27 +2,48 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 const port = process.env.PORT || 3000;
-const baseUrl = "http://localhost:26657/broadcast_tx_commit?";
+const { tx_baseUrl, qry_baseUrl, blkchnStatusUrl } = require('./const');
 
 const app = express();
 
-app.use(bodyParser.urlencoded({ extended : false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.post('/:tx', (req, res) => {
     let tx = req.params.tx;
 
-    makeRequest(`${ baseUrl }tx="${ tx }"`)
-    .then(result => {
-        res.status(200).send(result);
-    })
-    .catch(err => {
-        res.status(500).send(err);
-    }) 
+    makeRequest(`"${tx}"`)
+        .then(result => {
+            res.status(200).send(result);
+        })
+        .catch(err => {
+            res.status(500).send(err);
+        });
+});
+
+app.get('/:data', (req, res) => {
+    let data = req.params.data;
+    makeRequest(`"${data}"`)
+        .then(result => {
+            res.status(200).send(result);
+        })
+        .catch(err => {
+            res.status(500).send(err);
+        });
+});
+
+app.get('/status', (req, res) => {
+    makeRequest(blkchnStatusUrl)
+        .then(result => {
+            res.status(200).send(result);
+        })
+        .catch(err => {
+            res.status(500).send(err);
+        });
 });
 
 app.listen(port, () => {
-    console.log(`Server is up on port : ${ port }`);
+    console.log(`Server is up on port : ${port}`);
 });
 
 
