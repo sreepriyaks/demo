@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.post('/:tx', (req, res) => {
     let tx = req.params.tx;
 
-    makeRequest(`"${tx}"`)
+    makeRequest(`${ tx_baseUrl }"${tx}"`)
         .then(result => {
             res.status(200).send(result);
         })
@@ -23,7 +23,7 @@ app.post('/:tx', (req, res) => {
 
 app.get('/:data', (req, res) => {
     let data = req.params.data;
-    makeRequest(`"${data}"`)
+    makeRequest(`${ tx_baseUrl }"${data}"`)
         .then(result => {
             res.status(200).send(result);
         })
