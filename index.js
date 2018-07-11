@@ -33,7 +33,7 @@ app.get('/status', (req, res) => {
 
 app.get('/validators', (req, res) => {
     let data = req.params.data;
-    makeRequest(`${config.validators }"${data}"`)
+    makeRequest(config.validators)
         .then(result => {
             res.status(200).send(result);
         })
@@ -44,7 +44,7 @@ app.get('/validators', (req, res) => {
 
 app.get('/genesis', (req, res) => {
     let data = req.params.data;
-    makeRequest(`${config.genesis }"${data}"`)
+    makeRequest(config.genesis)
         .then(result => {
             res.status(200).send(result);
         })
@@ -55,7 +55,7 @@ app.get('/genesis', (req, res) => {
 
 app.get('/netInfo', (req, res) => {
     let data = req.params.data;
-    makeRequest(`${config.net_info }"${data}"`)
+    makeRequest(config.net_info)
         .then(result => {
             res.status(200).send(result);
         })
@@ -66,7 +66,7 @@ app.get('/netInfo', (req, res) => {
 
 app.get('/pendingTransactions', (req, res) => {
     let data = req.params.data;
-    makeRequest(`${config.unconfirmedTxs }"${data}"`)
+    makeRequest(config.unconfirmedTxs)
         .then(result => {
             res.status(200).send(result);
         })
@@ -77,7 +77,7 @@ app.get('/pendingTransactions', (req, res) => {
 
 app.get('/consensusState', (req, res) => {
     let data = req.params.data;
-    makeRequest(`${config.dump_consensus_state }"${data}"`)
+    makeRequest(config.dump_consensus_state)
         .then(result => {
             res.status(200).send(result);
         })
