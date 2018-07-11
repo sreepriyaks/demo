@@ -88,7 +88,7 @@ app.get('/consensusState', (req, res) => {
 
 app.get('/blockInfo/:blockHeight', (req, res) => {
     let blockHeight = req.params.blockHeight;
-    makeRequest(`${ config.dump_consensus_state }${ blockHeight }`)
+    makeRequest(`${ config.blockInfo }${ blockHeight }`)
         .then(result => {
             res.status(200).send(result);
         })
