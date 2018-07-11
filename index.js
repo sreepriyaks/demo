@@ -1,8 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const request = require('request');
 const port = process.env.PORT || 3000;
 const config = require('./const');
+const makeRequest = require('./common').makeRequest;
 
 const app = express();
 
@@ -111,21 +111,5 @@ app.get('/:data', (req, res) => {
 app.listen(port, () => {
     console.log(`Server is up on port : ${port}`);
 });
-
-function makeRequest(_url) {
-    console.log(_url);
-    return new Promise((resolve, reject) => {
-        let headers = {
-            'Content-Type': 'application/json'
-        };
-
-        request.get({ url: _url, headers: headers, json: true }, function (error, response, body) {
-            if (error)
-                return reject(error.message)
-
-            return resolve(body);
-        })
-    })
-};
 
 module.exports = app;
