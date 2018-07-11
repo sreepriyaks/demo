@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
 const port = process.env.PORT || 3000;
-const { tx_baseUrl, qry_baseUrl, blkchnStatusUrl } = require('./const');
+const config = require('./const');
 
 const app = express();
 
@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.post('/:tx', (req, res) => {
     let tx = req.params.tx;
 
-    makeRequest(`${ tx_baseUrl }"${tx}"`)
+    makeRequest(`${ config.tx_baseUrl }"${tx}"`)
         .then(result => {
             res.status(200).send(result);
         })
@@ -22,7 +22,62 @@ app.post('/:tx', (req, res) => {
 });
 
 app.get('/status', (req, res) => {
-    makeRequest(blkchnStatusUrl)
+    makeRequest(config.blkchnStatusUrl)
+        .then(result => {
+            res.status(200).send(result);
+        })
+        .catch(err => {
+            res.status(500).send(err);
+        });
+});
+
+app.get('/validators', (req, res) => {
+    let data = req.params.data;
+    makeRequest(`${config.validators }"${data}"`)
+        .then(result => {
+            res.status(200).send(result);
+        })
+        .catch(err => {
+            res.status(500).send(err);
+        });
+});
+
+app.get('/genesis', (req, res) => {
+    let data = req.params.data;
+    makeRequest(`${config.genesis }"${data}"`)
+        .then(result => {
+            res.status(200).send(result);
+        })
+        .catch(err => {
+            res.status(500).send(err);
+        });
+});
+
+app.get('/netInfo', (req, res) => {
+    let data = req.params.data;
+    makeRequest(`${config.net_info }"${data}"`)
+        .then(result => {
+            res.status(200).send(result);
+        })
+        .catch(err => {
+            res.status(500).send(err);
+        });
+});
+
+app.get('/pendingTransactions', (req, res) => {
+    let data = req.params.data;
+    makeRequest(`${config.unconfirmedTxs }"${data}"`)
+        .then(result => {
+            res.status(200).send(result);
+        })
+        .catch(err => {
+            res.status(500).send(err);
+        });
+});
+
+app.get('/consensusState', (req, res) => {
+    let data = req.params.data;
+    makeRequest(`${config.dump_consensus_state }"${data}"`)
         .then(result => {
             res.status(200).send(result);
         })
@@ -33,7 +88,7 @@ app.get('/status', (req, res) => {
 
 app.get('/:data', (req, res) => {
     let data = req.params.data;
-    makeRequest(`${ qry_baseUrl }"${data}"`)
+    makeRequest(`${config.qry_baseUrl }"${data}"`)
         .then(result => {
             res.status(200).send(result);
         })
@@ -45,7 +100,6 @@ app.get('/:data', (req, res) => {
 app.listen(port, () => {
     console.log(`Server is up on port : ${port}`);
 });
-
 
 function makeRequest(_url) {
     console.log(_url);
