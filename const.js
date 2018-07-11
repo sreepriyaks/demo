@@ -7,4 +7,5 @@ module.exports = {
     genesis: "http://localhost:26657/genesis",
     net_info: "http://localhost:26657/net_info",
     validators: "http://localhost:26657/validators",
+    blockInfo: "http://localhost:26657/block?height="
 };

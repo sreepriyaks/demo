@@ -86,6 +86,17 @@ app.get('/consensusState', (req, res) => {
         });
 });
 
+app.get('/blockInfo/:blockHeight', (req, res) => {
+    let blockHeight = req.params.blockHeight;
+    makeRequest(`${ config.dump_consensus_state }${ blockHeight }`)
+        .then(result => {
+            res.status(200).send(result);
+        })
+        .catch(err => {
+            res.status(500).send(err);
+        });
+});
+
 app.get('/:data', (req, res) => {
     let data = req.params.data;
     makeRequest(`${config.qry_baseUrl }"${data}"`)
