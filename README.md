@@ -23,6 +23,7 @@ A postman collection is also added (tendermint demo.postman_collection.json) whi
 
 6.	Run
     `abci-cli kvstore` on both nodes
+    
     *Note: kvstore is one of the sample abci applications that ships by default with Tendermint installation package*
 
 7.	Run
