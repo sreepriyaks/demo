@@ -1,0 +1,209 @@
+{
+	"variables": [],
+	"info": {
+		"name": "tendermint demo",
+		"_postman_id": "1cf11b34-c50c-1362-b0d8-4178fd79381d",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Blockchain Status  Node1",
+			"request": {
+				"url": "http://137.116.136.105/status",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Blockchain Status Node2",
+			"request": {
+				"url": "http://104.215.150.237/status",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Send Transaction Node1",
+			"request": {
+				"url": "http://137.116.136.105/fname=sreepriya",
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Send Transaction Node2",
+			"request": {
+				"url": "http://104.215.150.237/lname=sreekumar",
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Query Data Node1",
+			"request": {
+				"url": "http://137.116.136.105/lname",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Query Data Node2",
+			"request": {
+				"url": "http://104.215.150.237/fname",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Pending Transactions Node1",
+			"request": {
+				"url": "http://137.116.136.105/pendingTransactions",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Validators Node1",
+			"request": {
+				"url": "http://137.116.136.105/validators",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Genesis file Node1",
+			"request": {
+				"url": "http://137.116.136.105/genesis",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Net Info Node1",
+			"request": {
+				"url": "http://137.116.136.105/netinfo",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Pending Transactions Node2",
+			"request": {
+				"url": "http://104.215.150.237/pendingTransactions",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Validators Node2",
+			"request": {
+				"url": "http://104.215.150.237/validators",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Genesis file Node2",
+			"request": {
+				"url": "http://104.215.150.237/genesis",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Fetch Net Info Node2",
+			"request": {
+				"url": "http://104.215.150.237/netInfo",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "BlockInfo Node1",
+			"request": {
+				"url": "http://137.116.136.105/blockInfo/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "BlockInfo Node2",
+			"request": {
+				"url": "http://104.215.150.237/blockInfo/1",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Tendermint Status Node1",
+			"request": {
+				"url": "http://137.116.136.105/consensusState",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "Tendermint Status Node2",
+			"request": {
+				"url": "http://104.215.150.237/consensusState",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
