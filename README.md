@@ -1,6 +1,6 @@
 # About this server
 
-This is a sample solution for a quick tendermint demo. This essentially enables you to send transactions to a tendermint network and see the transaction getting approved and committed by the validators and propogated over all the nodes seamlessly. First deploy a Tendermint test-net by following the below commands and use this server to play around sending transactions, querying data from tendermint, checking list of validators, chain info, blockhain status, block info etc.
+This is a sample solution for a quick tendermint demo. This essentially enables you to send transactions to a tendermint network and see the transaction getting approved and committed by the validators and propogated over all the nodes seamlessly. First deploy a Tendermint test-net by following the below commands and use this server (git clone this to the tendermint nodes and run. This can also be done by adding a Non Validator node to the tendermint network and cloning this code to it.) to play around sending transactions, querying data from tendermint, checking list of validators, chain info, blockhain status, block info etc.
 
 This solution also contains a script that generates 100 transactions. This will show the speed of tendermint network in commiting transactions.
 
@@ -23,7 +23,7 @@ A postman collection is also added (tendermint demo.postman_collection.json) whi
 
 6.	Run
     `abci-cli kvstore` on both nodes
-    
+
     *Note: kvstore is one of the sample abci applications that ships by default with Tendermint installation package*
 
 7.	Run
