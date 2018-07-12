@@ -3,7 +3,7 @@ const makeRequest = require('./common').makeRequest;
 
 
 var i, key, value;
-for (i = 0; i < 1000; i++) {
+for (i = 0; i < 100; i++) {
     key = `Key${getRandomInt(77437)}`;
     value = `Value${getRandomInt(26346)}`;
     tx = `${key}=${value}`;
