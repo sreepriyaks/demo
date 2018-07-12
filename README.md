@@ -6,6 +6,8 @@ This solution also contains a script that generates 100 transactions. This will 
 
 Currently only 2 nodes are used, this codebase will be updated to use 4 tendermint nodes and steps to test the BFT capability of tendermint will also be documented here soon.
 
+a postman collection is also added (tendermint demo.postman_collection.json) which can be imported to the postman client and the IPs required to be updated accordingly
+
 # Deploy Tendermint test-net with 2 nodes
 1.	Spin up 2 Ubuntu instances
 2.	Install Tendermint and the application of interest on all nodes
@@ -24,7 +26,8 @@ Thus the command to run on first node:
 `tendermint node --p2p.persistent_peers=TENDERMINT_NODE_ID@10.0.2.5:26656 --consensus.create_empty_blocks=false`
 & the command to run on second node:
 `tendermint node --p2p.persistent_peers=TENDERMINT_NODE_ID@10.0.2.4:26656 --consensus.create_empty_blocks=false`
-NB: `10.0.2.5` and `10.0.2.4` are my node’s internal IPs
+
+Note: `10.0.2.5` and `10.0.2.4` are my node’s internal IPs
 
 After a few seconds, all the nodes should connect to each other and start making blocks
 
