@@ -6,30 +6,38 @@ This solution also contains a script that generates 100 transactions. This will 
 
 Currently only 2 nodes are used, this codebase will be updated to use 4 tendermint nodes and steps to test the BFT capability of tendermint will also be documented here soon.
 
-a postman collection is also added (tendermint demo.postman_collection.json) which can be imported to the postman client and the IPs required to be updated accordingly
+A postman collection is also added (tendermint demo.postman_collection.json) which can be imported to the postman client and the IPs required to be updated accordingly
 
 # Deploy Tendermint test-net with 2 nodes
 1.	Spin up 2 Ubuntu instances
+
 2.	Install Tendermint and the application of interest on all nodes
+
 3.	Generate a private key and a node key for each validator using
-`tendermint init`
+    `tendermint init`
+
 4.	Compile a list of public keys for each validator into a `genesis.json` file and replace the existing file with it
-5.	Get the Tendermint node id of each node by running the below command
-`tendermint show_node_id`
+
+5.	Get the Tendermint node id of each node by running the below command 
+    `tendermint show_node_id`
+
 6.	Run
-`abci-cli kvstore` on both nodes
-*Note: kvstore is one of the sample abci applications that ships by default with Tendermint installation package*
+    `abci-cli kvstore` on both nodes
+    *Note: kvstore is one of the sample abci applications that ships by default with Tendermint installation package*
+
 7.	Run
-`tendermint node --p2p.persistent_peers=< peer addresses >`
-on each node, where `< peer addresses >` is a comma separated list of the `TENDERMINT_NODE_ID@IP:PORT` combination for each node. The default port for Tendermint is `26656`.
-Thus the command to run on first node:
-`tendermint node --p2p.persistent_peers=TENDERMINT_NODE_ID@10.0.2.5:26656 --consensus.create_empty_blocks=false`
-& the command to run on second node:
-`tendermint node --p2p.persistent_peers=TENDERMINT_NODE_ID@10.0.2.4:26656 --consensus.create_empty_blocks=false`
+    `tendermint node --p2p.persistent_peers=< peer addresses >`
+    on each node, where `< peer addresses >` is a comma separated list of the `TENDERMINT_NODE_ID@IP:PORT` combination for each node. The default port for Tendermint is `26656`.
 
-Note: `10.0.2.5` and `10.0.2.4` are my node’s internal IPs
+    Thus the command to run on first node:
+    `tendermint node --p2p.persistent_peers=TENDERMINT_NODE_ID@10.0.2.5:26656 --consensus.create_empty_blocks=false`
 
-After a few seconds, all the nodes should connect to each other and start making blocks
+    & the command to run on second node:
+    `tendermint node --p2p.persistent_peers=TENDERMINT_NODE_ID@10.0.2.4:26656 --consensus.create_empty_blocks=false`
+
+    *Note: `10.0.2.5` and `10.0.2.4` are my node’s internal IPs*
+
+    *After a few seconds, all the nodes should connect to each other and start making blocks*
 
 
 # Steps to Install Tendermint on an Ubuntu Instance
